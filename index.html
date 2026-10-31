@@ -1,4 +1,60 @@
-
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kahzz Sensi</title>
+<style>
+body {
+  background: #101010;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+.caixa {
+  background: #202020;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+input {
+  width: 85%;
+  padding: 12px;
+  margin: 8px;
+  border-radius: 8px;
+  border: none;
+}
+button {
+  padding: 12px 20px;
+  background: #00d084;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>🎯 KAHZZ SENSI</h1>
+<p>Personalize sua configuração para jogos!</p>
+<div class="caixa">
+<h3>Configuração de sensibilidade</h3>
+<div id="controles"></div>
+<button onclick="salvar()">Salvar configurações</button>
+<p id="mensagem"></p>
+</div>
+<script>
+const nomes = ["Geral", "Ponto vermelho", "Mira 2x", "Mira 4x", "Mira AWM"];
+document.getElementById("controles").innerHTML = nomes.map(n =>
+`<label>${n}</label><br><input type="number" min="0" max="200" value="100" id="${n}"><br>`
+).join("");
+function salvar() {
+  const dados = nomes.map(n => n + ": " + document.getElementById(n).value);
+  localStorage.setItem("kahzzSensi", JSON.stringify(dados));
+  document.getElementById("mensagem").innerText = "Configurações salvas!";
+}
+</script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
