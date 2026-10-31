@@ -1,1 +1,227 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAHZZ SENSI</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #101010;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    color: #00ff88;
+    font-size: 34px;
+}
+
+header p {
+    color: #bbbbbb;
+}
+
+.card {
+    background: #1d1d1d;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: #00ff88;
+}
+
+.valor {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: #00ff88;
+    color: #101010;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    background: #292929;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>KAHZZ SENSI</h1>
+    <p>Configure sua sensibilidade!</p>
+</header>
+
+<div class="card">
+    <h2>🎯 Configurações</h2>
+    <p>Escolha um perfil para começar.</p>
+
+    <label for="perfil">Perfil de sensibilidade</label>
+    <select id="perfil" onchange="mudarPerfil()">
+        <option value="equilibrado">Equilibrado</option>
+        <option value="rapido">Rápido</option>
+        <option value="preciso">Controle preciso</option>
+    </select>
+
+    <label for="geral">Geral: <span class="valor" id="vGeral">150</span></label>
+    <input id="geral" type="range" min="0" max="200" value="150"
+    oninput="atualizar()">
+
+    <label for="ponto">Ponto vermelho: <span class="valor" id="vPonto">140</span></label>
+    <input id="ponto" type="range" min="0" max="200" value="140"
+    oninput="atualizar()">
+
+    <label for="mira2">Mira 2x: <span class="valor" id="vMira2">130</span></label>
+    <input id="mira2" type="range" min="0" max="200" value="130"
+    oninput="atualizar()">
+
+    <label for="mira4">Mira 4x: <span class="valor" id="vMira4">110</span></label>
+    <input id="mira4" type="range" min="0" max="200" value="110"
+    oninput="atualizar()">
+
+    <label for="awm">Mira AWM: <span class="valor" id="vAwm">70</span></label>
+    <input id="awm" type="range" min="0" max="200" value="70"
+    oninput="atualizar()">
+
+    <label for="olhadinha">Olhadinha: <span class="valor" id="vOlho">100</span></label>
+    <input id="olhadinha" type="range" min="0" max="200" value="100"
+    oninput="atualizar()">
+
+    <button onclick="salvar()">💾 Salvar configuração</button>
+    <button onclick="copiar()" style="background:#333;color:white;">
+        📋 Copiar configurações
+    </button>
+
+    <p id="mensagem" style="text-align:center;"></p>
+</div>
+
+<footer>
+    KAHZZ SENSI © 2026<br>
+    Configurações personalizáveis.
+</footer>
+
+<script>
+const campos = [
+    "geral", "ponto", "mira2",
+    "mira4", "awm", "olhadinha"
+];
+
+function atualizar() {
+    campos.forEach(campo => {
+        document.getElementById("v" +
+            campo.charAt(0).toUpperCase() +
+            campo.slice(1)
+        ).textContent = document.getElementById(campo).value;
+    });
+}
+
+function mudarPerfil() {
+    const perfil = document.getElementById("perfil").value;
+
+    const perfis = {
+        equilibrado: [150, 140, 130, 110, 70, 100],
+        rapido: [180, 170, 155, 135, 90, 130],
+        preciso: [120, 110, 100, 85, 55, 80]
+    };
+
+    campos.forEach((campo, i) => {
+        document.getElementById(campo).value = perfis[perfil][i];
+    });
+
+    atualizar();
+}
+
+function obterTexto() {
+    return "KAHZZ SENSI\n" +
+        campos.map(campo =>
+            campo + ": " + document.getElementById(campo).value
+        ).join("\n");
+}
+
+function salvar() {
+    localStorage.setItem("kahzzSensi", JSON.stringify(
+        campos.reduce((obj, campo) => {
+            obj[campo] = document.getElementById(campo).value;
+            return obj;
+        }, {})
+    ));
+
+    document.getElementById("mensagem").textContent =
+        "✅ Configurações salvas neste navegador!";
+}
+
+function copiar() {
+    const texto = obterTexto();
+    const area = document.createElement("textarea");
+    area.value = texto;
+    document.body.appendChild(area);
+    area.select();
+
+    try {
+        document.execCommand("copy");
+        document.getElementById("mensagem").textContent =
+            "✅ Configurações copiadas!";
+    } catch (e) {
+        document.getElementById("mensagem").textContent =
+            "Selecione e copie as configurações manualmente.";
+    }
+
+    area.remove();
+}
+
+const dados = JSON.parse(localStorage.getItem("kahzzSensi") || "null");
+
+if (dados) {
+    campos.forEach(campo => {
+        if (dados[campo] !== undefined) {
+            document.getElementById(campo).value = dados[campo];
+        }
+    });
+}
+
+atualizar();
+</script>
+
+</body>
+</html>
