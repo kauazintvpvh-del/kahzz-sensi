@@ -2,282 +2,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kahzz Sensi</title>
-<style>
+<meta name="theme-color" content="#080b0a">
+<title>KAHZZ SENSI 2.0</title><style>
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: #101010;
+  margin: 0;
+  padding: 20px;
+  background: #080b0a;
   color: white;
   font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-}
-.caixa {
-  background: #202020;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-}
-input {
-  width: 85%;
-  padding: 12px;
-  margin: 8px;
-  border-radius: 8px;
-  border: none;
-}
-button {
-  padding: 12px 20px;
-  background: #00d084;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-</style>
-</head>
-<body>
-<h1>🎯 KAHZZ SENSI</h1>
-<p>Personalize sua configuração para jogos!</p>
-<div class="caixa">
-<h3>Configuração de sensibilidade</h3>
-<div id="controles"></div>
-<button onclick="salvar()">Salvar configurações</button>
-<p id="mensagem"></p>
-</div>
-<script>
-const nomes = ["Geral", "Ponto vermelho", "Mira 2x", "Mira 4x", "Mira AWM"];
-document.getElementById("controles").innerHTML = nomes.map(n =>
-`<label>${n}</label><br><input type="number" min="0" max="200" value="100" id="${n}"><br>`
-).join("");
-function salvar() {
-  const dados = nomes.map(n => n + ": " + document.getElementById(n).value);
-  localStorage.setItem("kahzzSensi", JSON.stringify(dados));
-  document.getElementById("mensagem").innerText = "Configurações salvas!";
-}
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAHZZ SENSI</title>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 20px;
-    background: #101010;
-    color: white;
-    font-family: Arial, sans-serif;
 }
 
 header {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px 0;
 }
 
 header h1 {
-    color: #00ff88;
-    font-size: 34px;
+  color: #00ff91;
+  font-size: 36px;
+  margin: 5px;
+  font-weight: 900;
 }
 
 header p {
-    color: #bbbbbb;
+  color: #aaa;
 }
 
 .card {
-    background: #1d1d1d;
-    border: 1px solid #333;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 15px 0;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 22px;
+  border: 1px solid #292e2c;
+  border-radius: 18px;
+  background: #131715;
+}
+
+h2 {
+  text-align: center;
+  color: #00ff91;
 }
 
 label {
-    display: block;
-    margin-top: 18px;
-    margin-bottom: 8px;
-}
-
-input[type="range"] {
-    width: 100%;
-    accent-color: #00ff88;
-}
-
-.valor {
-    color: #00ff88;
-    font-weight: bold;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 15px;
-    background: #00ff88;
-    color: #101010;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  color: #ddd;
+  font-weight: bold;
 }
 
 select {
-    width: 100%;
-    padding: 12px;
-    background: #292929;
-    color: white;
-    border: 1px solid #444;
-    border-radius: 8px;
+  width: 100%;
+  padding: 14px;
+  background: #222725;
+  color: white;
+  border: 1px solid #414843;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #00ff91;
+  color: #06140d;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.resultado {
+  display: none;
+}
+
+.valor {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 10px;
+  margin: 8px 0;
+  background: #202622;
+  border-radius: 9px;
+}
+
+.valor strong {
+  color: #00ff91;
+}
+
+.aviso {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 20px;
 }
 
 footer {
-    text-align: center;
-    color: #777;
-    margin-top: 30px;
+  text-align: center;
+  color: #00ff91;
+  padding: 20px 0;
+  font-weight: bold;
 }
-</style>
-</head>
+</style></head><body><header>
+  <h1>KAHZZ SENSI</h1>
+  <p>🔥 Seu gerador de sensibilidade</p>
+  <p>Free Fire • Free Fire MAX</p>
+</header><main class="card">
+  <h2>🎯 GERAR SENSI</h2>
+  <p>Escolha suas preferências para criar uma configuração inicial.</p><label for="jogo">🎮 Escolha o jogo</label>
+<select id="jogo">
+<option value="normal">Free Fire</option>
+<option value="max">Free Fire MAX</option>
+</select>
 
-<body>
+<label for="marca">📱 Marca do celular</label>
+<select id="marca" onchange="atualizarModelos()">
+<option value="Samsung">Samsung</option>
+<option value="Motorola">Motorola</option>
+<option value="Xiaomi">Xiaomi</option>
+<option value="Redmi">Redmi</option>
+<option value="iPhone">iPhone</option>
+<option value="Realme">Realme</option>
+<option value="Outro">Outra marca</option>
+</select>
 
-<header>
-    <h1>KAHZZ SENSI</h1>
-    <p>Configure sua sensibilidade!</p>
-</header>
+<label for="modelo">📲 Modelo do celular</label>
+<select id="modelo">
+<option value="padrao">Modelo padrão</option>
+</select>
 
-<div class="card">
-    <h2>🎯 Configurações</h2>
-    <p>Escolha um perfil para começar.</p>
+<label for="estilo">🎯 Seu estilo de jogo</label>
+<select id="estilo">
+<option value="capa">Puxar capa</option>
+<option value="equilibrado">Equilibrado</option>
+<option value="precisao">Precisão</option>
+</select>
 
-    <label for="perfil">Perfil de sensibilidade</label>
-    <select id="perfil" onchange="mudarPerfil()">
-        <option value="equilibrado">Equilibrado</option>
-        <option value="rapido">Rápido</option>
-        <option value="preciso">Controle preciso</option>
-    </select>
+<button onclick="gerarSensi()">⚡ GERAR MINHA SENSI</button>
 
-    <label for="geral">Geral: <span class="valor" id="vGeral">150</span></label>
-    <input id="geral" type="range" min="0" max="200" value="150"
-    oninput="atualizar()">
+</main><section class="card resultado" id="resultado">
+  <h2>✅ SUA SENSI</h2>
+  <p id="resumo" style="text-align:center;color:#aaa"></p>  <div id="valores"></div><button onclick="copiarSensi()">📋 COPIAR SENSIBILIDADE</button>
+<button onclick="gerarSensi()" style="background:#252d28;color:#00ff91">
+🔄 GERAR OUTRA
+</button>
 
-    <label for="ponto">Ponto vermelho: <span class="valor" id="vPonto">140</span></label>
-    <input id="ponto" type="range" min="0" max="200" value="140"
-    oninput="atualizar()">
+  <p class="aviso">
+    Estes valores são sugestões iniciais. Teste no campo de treinamento
+    e ajuste conforme sua preferência. O aplicativo não altera o jogo
+    automaticamente.
+  </p>
+</section><footer>
+  KAHZZ SENSI 2.0<br>
+  <small>Desenvolvido para jogadores</small>
+</footer><script>
+const modelos = {
+  Samsung: ["Galaxy A05", "Galaxy A15", "Galaxy A25 5G",
+            "Galaxy A35", "Galaxy A55", "Galaxy S23",
+            "Galaxy S24", "Modelo padrão"],
+  Motorola: ["Moto G14", "Moto G24", "Moto G54",
+             "Moto G84", "Edge 40", "Modelo padrão"],
+  Xiaomi: ["Redmi Note 12", "Redmi Note 13",
+           "POCO X6", "POCO X6 Pro", "Modelo padrão"],
+  Redmi: ["Redmi 12", "Redmi 13", "Redmi Note 13",
+          "Modelo padrão"],
+  iPhone: ["iPhone 11", "iPhone 12", "iPhone 13",
+           "iPhone 14", "iPhone 15", "Modelo padrão"],
+  Realme: ["Realme C55", "Realme C67", "Realme 11",
+           "Modelo padrão"],
+  Outro: ["Modelo padrão"]
+};
 
-    <label for="mira2">Mira 2x: <span class="valor" id="vMira2">130</span></label>
-    <input id="mira2" type="range" min="0" max="200" value="130"
-    oninput="atualizar()">
+function atualizarModelos() {
+  const marca = document.getElementById("marca").value;
+  const seletor = document.getElementById("modelo");
 
-    <label for="mira4">Mira 4x: <span class="valor" id="vMira4">110</span></label>
-    <input id="mira4" type="range" min="0" max="200" value="110"
-    oninput="atualizar()">
+  seletor.innerHTML = "";
 
-    <label for="awm">Mira AWM: <span class="valor" id="vAwm">70</span></label>
-    <input id="awm" type="range" min="0" max="200" value="70"
-    oninput="atualizar()">
-
-    <label for="olhadinha">Olhadinha: <span class="valor" id="vOlho">100</span></label>
-    <input id="olhadinha" type="range" min="0" max="200" value="100"
-    oninput="atualizar()">
-
-    <button onclick="salvar()">💾 Salvar configuração</button>
-    <button onclick="copiar()" style="background:#333;color:white;">
-        📋 Copiar configurações
-    </button>
-
-    <p id="mensagem" style="text-align:center;"></p>
-</div>
-
-<footer>
-    KAHZZ SENSI © 2026<br>
-    Configurações personalizáveis.
-</footer>
-
-<script>
-const campos = [
-    "geral", "ponto", "mira2",
-    "mira4", "awm", "olhadinha"
-];
-
-function atualizar() {
-    campos.forEach(campo => {
-        document.getElementById("v" +
-            campo.charAt(0).toUpperCase() +
-            campo.slice(1)
-        ).textContent = document.getElementById(campo).value;
-    });
-}
-
-function mudarPerfil() {
-    const perfil = document.getElementById("perfil").value;
-
-    const perfis = {
-        equilibrado: [150, 140, 130, 110, 70, 100],
-        rapido: [180, 170, 155, 135, 90, 130],
-        preciso: [120, 110, 100, 85, 55, 80]
-    };
-
-    campos.forEach((campo, i) => {
-        document.getElementById(campo).value = perfis[perfil][i];
-    });
-
-    atualizar();
+  modelos[marca].forEach(function(modelo) {
+    const opcao = document.createElement("option");
+    opcao.value = modelo;
+    opcao.textContent = modelo;
+    seletor.appendChild(opcao);
+  });
 }
 
-function obterTexto() {
-    return "KAHZZ SENSI\n" +
-        campos.map(campo =>
-            campo + ": " + document.getElementById(campo).value
-        ).join("\n");
+function gerarSensi() {
+  const jogo = document.getElementById("jogo").value;
+  const marca = document.getElementById("marca").value;
+  const modelo = document.getElementById("modelo").value;
+  const estilo = document.getElementById("estilo").value;
+
+  const perfis = {
+    capa:       [190, 180, 170, 160, 100, 150],
+    equilibrado:[175, 165, 150, 140,  90, 130],
+    precisao:   [160, 145, 135, 120,  75, 110]
+  };
+
+  let valores = [...perfis[estilo]];
+
+  if (jogo === "max") {
+    valores = valores.map(v => Math.max(0, v - 5));
+  }
+
+  const nomes = [
+    "Geral",
+    "Ponto vermelho",
+    "Mira 2x",
+    "Mira 4x",
+    "Mira AWM",
+    "Olhadinha"
+  ];
+
+  document.getElementById("resumo").textContent =
+    jogo === "max" ? "Free Fire MAX" : "Free Fire";
+
+  document.getElementById("resumo").textContent +=
+    " • " + marca + " " + modelo + " • " +
+    (estilo === "capa" ? "Puxar capa" :
+     estilo === "precisao" ? "Precisão" : "Equilibrado");
+
+  document.getElementById("valores").innerHTML =
+    nomes.map((nome, i) =>
+      `<div class="valor">
+        <span>${nome}</span>
+        <strong>${valores[i]}</strong>
+      </div>`
+    ).join("");
+
+  window.sensiGerada = nomes.map((nome, i) =>
+    nome + ": " + valores[i]
+  ).join("\n");
+
+  document.getElementById("resultado").style.display = "block";
+  document.getElementById("resultado").scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
-function salvar() {
-    localStorage.setItem("kahzzSensi", JSON.stringify(
-        campos.reduce((obj, campo) => {
-            obj[campo] = document.getElementById(campo).value;
-            return obj;
-        }, {})
-    ));
+function copiarSensi() {
+  if (!window.sensiGerada) return;
 
-    document.getElementById("mensagem").textContent =
-        "✅ Configurações salvas neste navegador!";
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(window.sensiGerada)
+      .then(() => alert("Sensibilidade copiada!"))
+      .catch(() => copiarAlternativo());
+  } else {
+    copiarAlternativo();
+  }
 }
 
-function copiar() {
-    const texto = obterTexto();
-    const area = document.createElement("textarea");
-    area.value = texto;
-    document.body.appendChild(area);
-    area.select();
+function copiarAlternativo() {
+  const area = document.createElement("textarea");
+  area.value = window.sensiGerada;
+  document.body.appendChild(area);
+  area.select();
 
-    try {
-        document.execCommand("copy");
-        document.getElementById("mensagem").textContent =
-            "✅ Configurações copiadas!";
-    } catch (e) {
-        document.getElementById("mensagem").textContent =
-            "Selecione e copie as configurações manualmente.";
-    }
+  try {
+    document.execCommand("copy");
+    alert("Sensibilidade copiada!");
+  } catch (e) {
+    alert("Não foi possível copiar. Anote os valores na tela.");
+  }
 
-    area.remove();
+  area.remove();
 }
-
-const dados = JSON.parse(localStorage.getItem("kahzzSensi") || "null");
-
-if (dados) {
-    campos.forEach(campo => {
-        if (dados[campo] !== undefined) {
-            document.getElementById(campo).value = dados[campo];
-        }
-    });
-}
-
-atualizar();
-</script>
-
-</body>
+</script></body>
 </html>
