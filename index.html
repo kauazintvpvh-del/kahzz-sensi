@@ -1,280 +1,380 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b0a">
-<title>KAHZZ SENSI 2.0</title><style>
+<meta name="theme-color" content="#090b12">
+<title>KAHZZ SENSI</title>
+
+<style>
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 20px;
-  background: #080b0a;
-  color: white;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #090b12;
+    color: white;
+    min-height: 100vh;
 }
 
 header {
-  text-align: center;
-  padding: 20px 0;
+    text-align: center;
+    padding: 28px 15px;
+    background: linear-gradient(135deg, #111827, #202044);
+    border-bottom: 2px solid #7c3aed;
 }
 
-header h1 {
-  color: #00ff91;
-  font-size: 36px;
-  margin: 5px;
-  font-weight: 900;
+.logo {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #a78bfa;
 }
 
 header p {
-  color: #aaa;
+    color: #b8b8ca;
+    margin-bottom: 0;
+}
+
+.container {
+    width: 92%;
+    max-width: 500px;
+    margin: 22px auto;
 }
 
 .card {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 22px;
-  border: 1px solid #292e2c;
-  border-radius: 18px;
-  background: #131715;
+    background: #131722;
+    border: 1px solid #292d3c;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 25px #0004;
 }
 
 h2 {
-  text-align: center;
-  color: #00ff91;
+    font-size: 20px;
+    margin-top: 0;
 }
 
 label {
-  display: block;
-  margin-top: 18px;
-  margin-bottom: 8px;
-  color: #ddd;
-  font-weight: bold;
+    display: block;
+    margin: 16px 0 8px;
+    color: #d5d5e5;
+    font-size: 14px;
 }
 
-select {
-  width: 100%;
-  padding: 14px;
-  background: #222725;
-  color: white;
-  border: 1px solid #414843;
-  border-radius: 10px;
-  font-size: 16px;
+select, input[type="text"] {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #34394c;
+    border-radius: 10px;
+    background: #0b0e17;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: #a78bfa;
+}
+
+.range-info {
+    display: flex;
+    justify-content: space-between;
+    color: #aaaac0;
+    font-size: 12px;
 }
 
 button {
-  width: 100%;
-  padding: 15px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 10px;
-  background: #00ff91;
-  color: #06140d;
-  font-size: 16px;
-  font-weight: 900;
-  cursor: pointer;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #7c3aed, #5b21b6);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 18px;
 }
 
 button:active {
-  transform: scale(0.98);
+    transform: scale(.98);
+}
+
+.secondary {
+    background: #252a3b;
+    border: 1px solid #3a4057;
 }
 
 .resultado {
-  display: none;
+    display: none;
 }
 
-.valor {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 10px;
-  margin: 8px 0;
-  background: #202622;
-  border-radius: 9px;
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #0b0e17;
+    border: 1px solid #292d3c;
+    border-radius: 10px;
+    padding: 14px;
+    margin: 10px 0;
 }
 
-.valor strong {
-  color: #00ff91;
+.item span {
+    color: #c9c9dc;
+    font-size: 14px;
+}
+
+.item strong {
+    color: #c4b5fd;
+    font-size: 21px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #292044;
+    color: #c4b5fd;
+    font-size: 12px;
+    margin-bottom: 12px;
 }
 
 .aviso {
-  color: #aaa;
-  font-size: 13px;
-  line-height: 1.6;
-  text-align: center;
-  margin-top: 20px;
+    color: #aaaac0;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
 }
 
 footer {
-  text-align: center;
-  color: #00ff91;
-  padding: 20px 0;
-  font-weight: bold;
+    text-align: center;
+    color: #777b90;
+    padding: 20px;
+    font-size: 12px;
 }
-</style></head><body><header>
-  <h1>KAHZZ SENSI</h1>
-  <p>🔥 Seu gerador de sensibilidade</p>
-  <p>Free Fire • Free Fire MAX</p>
-</header><main class="card">
-  <h2>🎯 GERAR SENSI</h2>
-  <p>Escolha suas preferências para criar uma configuração inicial.</p><label for="jogo">🎮 Escolha o jogo</label>
-<select id="jogo">
-<option value="normal">Free Fire</option>
-<option value="max">Free Fire MAX</option>
-</select>
+</style>
+</head>
 
-<label for="marca">📱 Marca do celular</label>
-<select id="marca" onchange="atualizarModelos()">
-<option value="Samsung">Samsung</option>
-<option value="Motorola">Motorola</option>
-<option value="Xiaomi">Xiaomi</option>
-<option value="Redmi">Redmi</option>
-<option value="iPhone">iPhone</option>
-<option value="Realme">Realme</option>
-<option value="Outro">Outra marca</option>
-</select>
+<body>
 
-<label for="modelo">📲 Modelo do celular</label>
-<select id="modelo">
-<option value="padrao">Modelo padrão</option>
-</select>
+<header>
+    <div class="logo">KAHZZ <span>SENSI</span></div>
+    <p>Gerador de sensibilidades aleatórias 🎯</p>
+</header>
 
-<label for="estilo">🎯 Seu estilo de jogo</label>
-<select id="estilo">
-<option value="capa">Puxar capa</option>
-<option value="equilibrado">Equilibrado</option>
-<option value="precisao">Precisão</option>
-</select>
+<main class="container">
 
-<button onclick="gerarSensi()">⚡ GERAR MINHA SENSI</button>
+    <section class="card">
+        <h2>⚙️ Configurar sensibilidade</h2>
 
-</main><section class="card resultado" id="resultado">
-  <h2>✅ SUA SENSI</h2>
-  <p id="resumo" style="text-align:center;color:#aaa"></p>  <div id="valores"></div><button onclick="copiarSensi()">📋 COPIAR SENSIBILIDADE</button>
-<button onclick="gerarSensi()" style="background:#252d28;color:#00ff91">
-🔄 GERAR OUTRA
-</button>
+        <label for="jogo">Versão do jogo</label>
+        <select id="jogo">
+            <option>Free Fire</option>
+            <option>Free Fire MAX</option>
+        </select>
 
-  <p class="aviso">
-    Estes valores são sugestões iniciais. Teste no campo de treinamento
-    e ajuste conforme sua preferência. O aplicativo não altera o jogo
-    automaticamente.
-  </p>
-</section><footer>
-  KAHZZ SENSI 2.0<br>
-  <small>Desenvolvido para jogadores</small>
-</footer><script>
-const modelos = {
-  Samsung: ["Galaxy A05", "Galaxy A15", "Galaxy A25 5G",
-            "Galaxy A35", "Galaxy A55", "Galaxy S23",
-            "Galaxy S24", "Modelo padrão"],
-  Motorola: ["Moto G14", "Moto G24", "Moto G54",
-             "Moto G84", "Edge 40", "Modelo padrão"],
-  Xiaomi: ["Redmi Note 12", "Redmi Note 13",
-           "POCO X6", "POCO X6 Pro", "Modelo padrão"],
-  Redmi: ["Redmi 12", "Redmi 13", "Redmi Note 13",
-          "Modelo padrão"],
-  iPhone: ["iPhone 11", "iPhone 12", "iPhone 13",
-           "iPhone 14", "iPhone 15", "Modelo padrão"],
-  Realme: ["Realme C55", "Realme C67", "Realme 11",
-           "Modelo padrão"],
-  Outro: ["Modelo padrão"]
-};
+        <label for="celular">Modelo do celular (opcional)</label>
+        <input type="text" id="celular"
+               placeholder="Ex.: Samsung Galaxy A25">
 
-function atualizarModelos() {
-  const marca = document.getElementById("marca").value;
-  const seletor = document.getElementById("modelo");
+        <label for="estilo">Estilo de jogo</label>
+        <select id="estilo">
+            <option value="equilibrado">Equilibrado</option>
+            <option value="precisao">Precisão</option>
+            <option value="rapido">Rápido</option>
+        </select>
 
-  seletor.innerHTML = "";
+        <label for="forca">Faixa da sensibilidade</label>
+        <input type="range" id="forca" min="1" max="3" value="2"
+               oninput="atualizarFaixa()">
 
-  modelos[marca].forEach(function(modelo) {
-    const opcao = document.createElement("option");
-    opcao.value = modelo;
-    opcao.textContent = modelo;
-    seletor.appendChild(opcao);
-  });
+        <div class="range-info">
+            <span>Baixa</span>
+            <span id="nomeFaixa">Média</span>
+            <span>Alta</span>
+        </div>
+
+        <button onclick="gerarSensi()">🎲 GERAR SENSI ALEATÓRIA</button>
+    </section>
+
+    <section class="card resultado" id="resultado">
+        <span class="badge">SENSI GERADA</span>
+        <h2>🎯 Sua configuração</h2>
+        <p id="info" style="color:#aaaac0;font-size:13px;"></p>
+
+        <div id="valores"></div>
+
+        <button onclick="copiarSensi()">📋 COPIAR SENSIBILIDADE</button>
+        <button class="secondary" onclick="gerarSensi()">
+            🔄 GERAR OUTRA SENSI
+        </button>
+
+        <p class="aviso">
+            Os valores são sugestões aleatórias. Teste no campo de
+            treinamento e ajuste conforme sua preferência.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>💡 Como usar</h2>
+        <p class="aviso">
+            1. Escolha a versão do jogo.<br>
+            2. Selecione seu estilo de jogo.<br>
+            3. Escolha a faixa de sensibilidade.<br>
+            4. Toque em gerar e teste os valores.<br><br>
+            O aplicativo não altera as configurações do jogo
+            automaticamente.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    KAHZZ SENSI © 2026 · Projeto independente
+</footer>
+
+<script>
+let ultimaSensi = null;
+
+function atualizarFaixa() {
+    const faixa = document.getElementById("forca").value;
+    const nomes = {
+        1: "Baixa",
+        2: "Média",
+        3: "Alta"
+    };
+
+    document.getElementById("nomeFaixa").textContent = nomes[faixa];
+}
+
+function aleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function gerarSensi() {
-  const jogo = document.getElementById("jogo").value;
-  const marca = document.getElementById("marca").value;
-  const modelo = document.getElementById("modelo").value;
-  const estilo = document.getElementById("estilo").value;
+    const faixa = Number(document.getElementById("forca").value);
+    const estilo = document.getElementById("estilo").value;
+    const jogo = document.getElementById("jogo").value;
+    const celular = document.getElementById("celular").value.trim();
 
-  const perfis = {
-    capa:       [190, 180, 170, 160, 100, 150],
-    equilibrado:[175, 165, 150, 140,  90, 130],
-    precisao:   [160, 145, 135, 120,  75, 110]
-  };
+    let minimo, maximo;
 
-  let valores = [...perfis[estilo]];
+    if (faixa === 1) {
+        minimo = 80;
+        maximo = 140;
+    } else if (faixa === 2) {
+        minimo = 120;
+        maximo = 180;
+    } else {
+        minimo = 160;
+        maximo = 200;
+    }
 
-  if (jogo === "max") {
-    valores = valores.map(v => Math.max(0, v - 5));
-  }
+    let valores = {
+        "Geral": [minimo, maximo],
+        "Ponto vermelho": [minimo, maximo],
+        "Mira 2x": [minimo, maximo],
+        "Mira 4x": [Math.max(50, minimo - 20), maximo],
+        "Mira AWM": [20, Math.min(150, maximo - 20)],
+        "Olhadinha": [minimo, maximo]
+    };
 
-  const nomes = [
-    "Geral",
-    "Ponto vermelho",
-    "Mira 2x",
-    "Mira 4x",
-    "Mira AWM",
-    "Olhadinha"
-  ];
+    if (estilo === "precisao") {
+        valores["Geral"] = [Math.max(70, minimo - 20), maximo - 10];
+        valores["Ponto vermelho"] = [Math.max(70, minimo - 20), maximo - 10];
+        valores["Mira 2x"] = [Math.max(60, minimo - 30), maximo - 20];
+        valores["Mira 4x"] = [Math.max(50, minimo - 40), maximo - 30];
+    }
 
-  document.getElementById("resumo").textContent =
-    jogo === "max" ? "Free Fire MAX" : "Free Fire";
+    if (estilo === "rapido") {
+        valores["Geral"] = [minimo, 200];
+        valores["Ponto vermelho"] = [minimo, 200];
+        valores["Olhadinha"] = [minimo, 200];
+    }
 
-  document.getElementById("resumo").textContent +=
-    " • " + marca + " " + modelo + " • " +
-    (estilo === "capa" ? "Puxar capa" :
-     estilo === "precisao" ? "Precisão" : "Equilibrado");
+    let novaSensi = {};
 
-  document.getElementById("valores").innerHTML =
-    nomes.map((nome, i) =>
-      `<div class="valor">
-        <span>${nome}</span>
-        <strong>${valores[i]}</strong>
-      </div>`
-    ).join("");
+    for (const nome in valores) {
+        const [min, max] = valores[nome];
+        novaSensi[nome] = aleatorio(min, Math.max(min, max));
+    }
 
-  window.sensiGerada = nomes.map((nome, i) =>
-    nome + ": " + valores[i]
-  ).join("\n");
+    // Evita repetir exatamente a mesma configuração consecutivamente.
+    if (ultimaSensi &&
+        JSON.stringify(novaSensi) === JSON.stringify(ultimaSensi)) {
+        novaSensi["Geral"] =
+            novaSensi["Geral"] >= 200
+                ? novaSensi["Geral"] - 1
+                : novaSensi["Geral"] + 1;
+    }
 
-  document.getElementById("resultado").style.display = "block";
-  document.getElementById("resultado").scrollIntoView({
-    behavior: "smooth"
-  });
+    ultimaSensi = {...novaSensi};
+
+    const emojis = {
+        "Geral": "🎯",
+        "Ponto vermelho": "🔴",
+        "Mira 2x": "🔍",
+        "Mira 4x": "🔭",
+        "Mira AWM": "🎯",
+        "Olhadinha": "👀"
+    };
+
+    let html = "";
+
+    for (const nome in novaSensi) {
+        html += `
+            <div class="item">
+                <span>${emojis[nome]} ${nome}</span>
+                <strong>${novaSensi[nome]}</strong>
+            </div>
+        `;
+    }
+
+    document.getElementById("valores").innerHTML = html;
+    document.getElementById("info").textContent =
+        jogo + (celular ? " · " + celular : "") +
+        " · Estilo: " + estilo;
+
+    document.getElementById("resultado").style.display = "block";
+    document.getElementById("resultado").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
 
-function copiarSensi() {
-  if (!window.sensiGerada) return;
+async function copiarSensi() {
+    if (!ultimaSensi) return;
 
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(window.sensiGerada)
-      .then(() => alert("Sensibilidade copiada!"))
-      .catch(() => copiarAlternativo());
-  } else {
-    copiarAlternativo();
-  }
+    let texto = "KAHZZ SENSI\n\n";
+
+    for (const nome in ultimaSensi) {
+        texto += nome + ": " + ultimaSensi[nome] + "\n";
+    }
+
+    try {
+        await navigator.clipboard.writeText(texto);
+        alert("Sensibilidade copiada! 🎯");
+    } catch (erro) {
+        const area = document.createElement("textarea");
+        area.value = texto;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        alert("Sensibilidade copiada! 🎯");
+    }
 }
+</script>
 
-function copiarAlternativo() {
-  const area = document.createElement("textarea");
-  area.value = window.sensiGerada;
-  document.body.appendChild(area);
-  area.select();
-
-  try {
-    document.execCommand("copy");
-    alert("Sensibilidade copiada!");
-  } catch (e) {
-    alert("Não foi possível copiar. Anote os valores na tela.");
-  }
-
-  area.remove();
-}
-</script></body>
+</body>
 </html>
